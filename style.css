@@ -45,9 +45,6 @@ img {
     user-select: none;
     -webkit-user-drag: none;
 }
-div {
-    overflow-x: hidden;
-}
 .flex-container {
     display: flex;
 }
@@ -75,6 +72,7 @@ div {
 }
 #welcome {
     padding-top: 100px;
+    overflow-x: hidden;
 }
 #welcome .flex-container {
     flex-flow: column;
@@ -99,13 +97,13 @@ div {
     direction: rtl;
 }
 #about {
-    margin: 0% 10%;
+    margin: 0% 10% 0% 10%;
 }
 #projects {
-    margin: 5% 10% 5% 10%;
+    margin: 5% 10% 0% 10%;
 }
 #contact {
-    margin: 0% 10% 10% 10%;
+    margin: 5% 10% 5% 10%;
 }
 #projects>.flex-container {
     flex-flow: center;
@@ -122,5 +120,18 @@ div {
     border-radius: 10px;
 }
 .socials {
-    
+    gap: 10%;
+}
+.socials img {
+    height: 75px;
+}
+.card {
+    gap: 10%;
+    align-items: center;
+    font-weight: 600;
+}
+.watermark {
+    margin-top: 5%;
+    justify-content: center;
+    font-size: 1em;
 }
