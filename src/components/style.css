@@ -76,8 +76,7 @@ img {
     font-weight: 500;
 }
 #welcome {
-    margin: 10% 10% 0% 10%;
-    padding-top: 100px;
+    height: 100vh;
     overflow-x: hidden;
 }
 #welcome .flex-container {
@@ -105,7 +104,7 @@ img {
     direction: rtl;
 }
 #about {
-    margin: 20% 10% 0% 10%;
+    margin: 0% 10% 0% 10%;
     flex-flow: column;
     align-items: center;
 }
@@ -124,6 +123,7 @@ img {
     gap: 5%;
 }
 .project {
+    margin: 1%;
     width: 20%;
     flex-flow: column;
     align-items: center;

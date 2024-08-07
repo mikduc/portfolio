@@ -7,15 +7,15 @@ function Contact() {
       <div className="socials flex-container">
           <div className="card flex-container">
               <img src={require("../images/instagram.png")}/>
-              <a href="https://instagram.com/mik.duc " target="_blank" class="text-secondary m">Instagram</a>
+              <a href="https://instagram.com/mik.duc " target="_blank" className="text-secondary m">Instagram</a>
           </div>
           <div className="card flex-container">
               <img src={require("../images/linkedin.png")}/>
-              <a href="https://linkedin.com/in/ryanfang01 " target="_blank" class="text-secondary m">LinkedIn</a>
+              <a href="https://linkedin.com/in/ryanfang01 " target="_blank" className="text-secondary m">LinkedIn</a>
           </div>
           <div className="card flex-container">
               <img src={require("../images/github.png")}/>
-              <a href="https://github.com/mikduc " target="_blank" class="text-secondary m">GitHub</a>
+              <a href="https://github.com/mikduc " target="_blank" className="text-secondary m">GitHub</a>
           </div>
       </div>
       <div className="watermark flex-container text-tertiary">
