@@ -5,6 +5,7 @@
 body {
     margin: 0px;
     padding: 0px;
+    overflow-x: hidden;
 }
 .text-primary {
     color: #1D3557;
