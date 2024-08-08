@@ -78,7 +78,6 @@ img {
 }
 #welcome {
     height: 100vh;
-    overflow-x: hidden;
 }
 #welcome .flex-container {
     flex-flow: column;
@@ -154,4 +153,7 @@ img {
     margin-bottom: 5%;
     justify-content: center;
     font-size: 1em;
+}
+::-webkit-scrollbar {
+    display: none;
 }

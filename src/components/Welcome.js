@@ -4,7 +4,7 @@ import Shape from "./Shape";
 const Welcome = () => {
 
   const date = new Date();
-  const [state, setState] = useState(60);
+  const [state, setState] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => { setState(state + 1); }, 1000);
