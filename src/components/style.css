@@ -65,7 +65,7 @@ img {
     margin-bottom: 20px;
     position: sticky;
     top: 0;
-    background-color: #ffffff60;
+    background-color: #ffffff;
     justify-content: center;
 }
 #navbar>.flex-container {
@@ -78,6 +78,7 @@ img {
 }
 #welcome {
     height: 100vh;
+    justify-content: center;
 }
 #welcome .flex-container {
     flex-flow: column;
