@@ -6,7 +6,9 @@ type ThemeStore = {
 };
 
 export const useThemeStore = create<ThemeStore>((set) => ({
-  isDark: typeof window !== 'undefined' && localStorage.getItem('theme') === 'dark',
+  isDark: typeof window !== 'undefined' 
+    ? (localStorage.getItem('theme') === 'light' ? false : true)
+    : true,
   toggleTheme: () => set((state) => {
     const newDark = !state.isDark;
     localStorage.setItem('theme', newDark ? 'dark' : 'light');

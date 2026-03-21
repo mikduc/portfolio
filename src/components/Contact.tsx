@@ -38,7 +38,8 @@ function Contact() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        delayChildren: 0.08,
+        staggerChildren: 0.12,
       },
     },
   };
@@ -48,8 +49,14 @@ function Contact() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6 },
+      transition: { duration: 0.55 },
     },
+  };
+
+  const socialIconMotion = {
+    whileHover: { scale: 1.12, y: -2 },
+    whileTap: { scale: 0.96 },
+    transition: { duration: 0.2 },
   };
 
   const socialLinks = [
@@ -63,28 +70,28 @@ function Contact() {
       name: "LinkedIn",
       url: "https://linkedin.com/in/ryanfang01",
       icon: "linkedin",
-      color: "hover:text-secondary dark:hover:text-darkTertiary",
+      color: "hover:text-primary dark:hover:text-darkLight",
     },
     {
       name: "Instagram",
       url: "https://instagram.com/mik.duc",
       icon: "instagram",
-      color: "hover:text-tertiary dark:hover:text-darkLight",
+      color: "hover:text-primary dark:hover:text-darkLight",
     },
   ];
 
   return (
     <motion.section
       id="contact"
-      className="section bg-light dark:bg-darkPrimary"
+      className="min-h-screen snap-start flex items-center bg-light dark:bg-darkPrimary py-24"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.8 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.55 }}
     >
-      <div className="max-w-4xl mx-auto">
+      <div className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
         <motion.h2
-          className="section-title text-center"
+          className="section-title"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -94,14 +101,14 @@ function Contact() {
         </motion.h2>
 
         <motion.div
-          className="grid md:grid-cols-2 gap-12"
+          className="grid lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-12 items-start"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
           {/* Contact Form */}
-          <motion.div variants={itemVariants}>
+          <motion.div variants={itemVariants} className="card dark:bg-darkSecondary rounded-2xl border border-secondary/20 dark:border-darkTertiary/30">
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               {/* Name Field */}
               <div>
@@ -185,7 +192,7 @@ function Contact() {
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="p-4 bg-tertiary dark:bg-darkSecondary text-primary dark:text-darkLight rounded-lg"
+                  className="p-4 bg-tertiary dark:bg-darkTertiary/30 text-primary dark:text-darkLight rounded-lg"
                 >
                   ✓ Message sent successfully!
                 </motion.div>
@@ -202,21 +209,26 @@ function Contact() {
               <h3 className="text-2xl font-bold text-primary dark:text-darkLight mb-4">
                 Let's Connect
               </h3>
-              <p className="text-secondary dark:text-darkTertiary mb-8">
+              <p className="text-secondary dark:text-darkTertiary mb-8 leading-relaxed">
                 Have an interesting project in mind? Want to collaborate or just chat about tech? Drop me a message or find me on social media. I'd love to hear from you.
               </p>
             </div>
 
             {/* Social Icons */}
-            <div className="flex gap-6">
-              {socialLinks.map((link) => (
+            <div className="flex gap-5">
+              {socialLinks.map((link, index) => (
                 <motion.a
                   key={link.name}
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.2, rotate: 5 }}
-                  className={`text-tertiary dark:text-darkLight text-4xl transition-colors duration-200 ${link.color}`}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.08, duration: 0.35 }}
+                  whileHover={socialIconMotion.whileHover}
+                  whileTap={socialIconMotion.whileTap}
+                  className={`p-3 rounded-xl bg-secondary/10 dark:bg-darkTertiary/20 text-darkPrimary dark:text-darkLight text-4xl transition-colors duration-200 ${link.color}`}
                   title={link.name}
                 >
                   {link.icon === "github" && (
@@ -231,7 +243,7 @@ function Contact() {
                   )}
                   {link.icon === "instagram" && (
                     <svg fill="currentColor" viewBox="0 0 24 24" className="w-10 h-10">
-                      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0m0 22C6.478 22 2 17.522 2 12S6.478 2 12 2s10 4.478 10 10-4.478 10-10 10m3.5-10c0-1.93-1.57-3.5-3.5-3.5S8 10.07 8 12s1.57 3.5 3.5 3.5 3.5-1.57 3.5-3.5m1.5 0c0 2.485-2.015 4.5-4.5 4.5S7 14.485 7 12s2.015-4.5 4.5-4.5 4.5 2.015 4.5 4.5m1.6-4.3c0 .589-.478 1.067-1.067 1.067-.589 0-1.067-.478-1.067-1.067 0-.589.478-1.067 1.067-1.067.589 0 1.067.478 1.067 1.067" />
+                      <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.75a4 4 0 0 0-4 4v8.5a4 4 0 0 0 4 4h8.5a4 4 0 0 0 4-4v-8.5a4 4 0 0 0-4-4h-8.5Zm4.25 2.75a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11Zm0 1.75a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Zm5.88-.86a1.12 1.12 0 1 1-2.24 0 1.12 1.12 0 0 1 2.24 0Z" />
                     </svg>
                   )}
                 </motion.a>
@@ -244,10 +256,10 @@ function Contact() {
                 Or email me directly:
               </h4>
               <a
-                href="mailto:ryan@example.com"
-                className="text-lg text-tertiary dark:text-darkLight font-semibold hover:opacity-80 transition-opacity"
+                href="mailto:ryanfang01@gmail.com"
+                className="text-lg text-primary dark:text-darkLight font-semibold hover:opacity-80 transition-opacity"
               >
-                ryan@example.com
+                ryanfang01@gmail.com
               </a>
             </div>
           </motion.div>
@@ -256,10 +268,10 @@ function Contact() {
         {/* Footer */}
         <motion.div
           variants={itemVariants}
-          className="text-center mt-20 pt-10 border-t border-secondary dark:border-darkTertiary"
+          className="text-center mt-16 pt-8 border-t border-secondary/40 dark:border-darkTertiary/50"
         >
           <p className="text-secondary dark:text-darkTertiary">
-            © {new Date().getFullYear()} Ryan Fang. Built with React, TypeScript & Tailwind CSS.
+            © {new Date().getFullYear()} Ryan Fang.
           </p>
         </motion.div>
       </div>

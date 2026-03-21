@@ -8,7 +8,8 @@ function Projects() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        delayChildren: 0.08,
+        staggerChildren: 0.12,
       },
     },
   };
@@ -18,14 +19,14 @@ function Projects() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6 },
+      transition: { duration: 0.55 },
     },
   };
 
   const projects = [
     {
-      url: "https://gitfront.io/r/treblabin/KNgFrk3qtsHe/cpp-chess/",
-      img: "../images/chess.png",
+      url: "https://gitfront.io/r/mikduc/8EqMpXHRpqQk/cpp-chess/",
+      img: "/images/chess.png",
       name: "Chess Engine",
       description:
         "A full-featured chess game in C++ with AI opponent powered by minimax algorithm and real-time graphics using X11.",
@@ -57,15 +58,15 @@ function Projects() {
   return (
     <motion.section
       id="projects"
-      className="section bg-light dark:bg-darkPrimary"
+      className="min-h-screen snap-start flex items-center bg-light dark:bg-darkPrimary py-24"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.8 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.55 }}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
         <motion.h2
-          className="section-title text-center"
+          className="section-title"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -74,8 +75,18 @@ function Projects() {
           Featured Projects
         </motion.h2>
 
+        <motion.p
+          className="text-lg text-secondary dark:text-darkTertiary max-w-2xl mb-10"
+          variants={itemVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          A selection of work across software engineering, game development, and data workflows.
+        </motion.p>
+
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-7"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

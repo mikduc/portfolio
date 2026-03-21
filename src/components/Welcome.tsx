@@ -25,65 +25,88 @@ const Welcome = () => {
   return (
     <motion.section
       id="top"
-      className="relative min-h-screen flex items-center justify-center bg-light dark:bg-darkPrimary"
+      className="relative min-h-screen snap-start flex items-center bg-light dark:bg-darkPrimary pt-24"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      {/* Content */}
-      <motion.div
-        className="relative z-10 text-center px-4 max-w-4xl"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <motion.p
-          variants={itemVariants}
-          className="text-xl md:text-2xl text-secondary dark:text-darkTertiary font-medium mb-4"
-        >
-          Welcome to my workspace
-        </motion.p>
-
-        <motion.h1
-          variants={itemVariants}
-          className="text-6xl md:text-8xl font-bold text-primary dark:text-darkLight mb-6 leading-tight"
-        >
-          I'm Ryan.
-        </motion.h1>
-
-        <motion.p
-          variants={itemVariants}
-          className="text-lg md:text-2xl text-secondary dark:text-darkTertiary mb-8"
-        >
-          Crafting elegant solutions and digital experiences.
-        </motion.p>
-
+      <div className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
         <motion.div
-          variants={itemVariants}
-          className="flex gap-4 justify-center flex-wrap"
+          className="grid lg:grid-cols-[1.3fr_1fr] gap-10 lg:gap-14 items-center"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
         >
-          <motion.a
-            href="#projects"
-            className="btn-primary"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <div>
+            <motion.p
+              variants={itemVariants}
+              className="inline-flex items-center rounded-full bg-secondary/10 dark:bg-darkTertiary/20 px-4 py-2 text-sm md:text-base text-secondary dark:text-darkTertiary font-semibold mb-5"
+            >
+              Mathematics @ University of Waterloo
+            </motion.p>
+
+            <motion.h1
+              variants={itemVariants}
+              className="text-5xl md:text-7xl lg:text-8xl font-bold text-primary dark:text-darkLight leading-[1.05]"
+            >
+              Ryan Fang
+            </motion.h1>
+
+            <motion.p
+              variants={itemVariants}
+              className="mt-6 text-lg md:text-2xl text-secondary dark:text-darkTertiary max-w-2xl"
+            >
+              Building thoughtful products through clean engineering, creative design, and strong problem solving.
+            </motion.p>
+
+            <motion.div variants={itemVariants} className="mt-10 flex gap-4 flex-wrap">
+              <motion.a
+                href="#projects"
+                className="btn-primary"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.96 }}
+              >
+                View Projects
+              </motion.a>
+              <motion.a
+                href="#contact"
+                className="btn-secondary"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.96 }}
+              >
+                Contact Me
+              </motion.a>
+            </motion.div>
+          </div>
+
+          <motion.div
+            variants={itemVariants}
+            className="card dark:bg-darkSecondary rounded-2xl p-7 border border-secondary/20 dark:border-darkTertiary/30"
           >
-            See My Projects
-          </motion.a>
-          <motion.a
-            href="#contact"
-            className="btn-secondary"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Let's Talk
-          </motion.a>
+            <p className="text-sm font-semibold tracking-wide uppercase text-secondary dark:text-darkTertiary mb-4">
+              Quick Snapshot
+            </p>
+            <div className="space-y-5">
+              <div>
+                <p className="text-sm text-secondary dark:text-darkTertiary">Focus</p>
+                <p className="text-lg font-semibold text-primary dark:text-darkLight">Frontend Engineering & Data-Oriented Development</p>
+              </div>
+              <div>
+                <p className="text-sm text-secondary dark:text-darkTertiary">Stack</p>
+                <p className="text-lg font-semibold text-primary dark:text-darkLight">React, TypeScript, Python, C++</p>
+              </div>
+              <div>
+                <p className="text-sm text-secondary dark:text-darkTertiary">Strength</p>
+                <p className="text-lg font-semibold text-primary dark:text-darkLight">From concept to polished implementation</p>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
