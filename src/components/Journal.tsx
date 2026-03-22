@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { motion } from "framer-motion";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Session } from "@supabase/supabase-js";
 import { getSupabaseClient } from "../utils/supabase";
 
@@ -67,8 +67,9 @@ function Journal({ onClose }: JournalProps) {
   const [selectedDateKey, setSelectedDateKey] = useState<string | null>(null);
   const [authError, setAuthError] = useState("");
   const [entryError, setEntryError] = useState("");
+  const heatmapScrollContainerRef = useRef<HTMLDivElement | null>(null);
 
-  const isSubmitDisabled = title.trim().length < 2;
+  const isSubmitDisabled = title.trim().length < 1;
   const hasSupabaseConfig = Boolean(supabase);
 
   const loadEntries = useCallback(async (userId: string) => {
@@ -128,6 +129,24 @@ function Journal({ onClose }: JournalProps) {
       subscription.unsubscribe();
     };
   }, [hasSupabaseConfig, supabase]);
+
+  useEffect(() => {
+    if (!isCreateFormOpen) {
+      return;
+    }
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsCreateFormOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleEscape);
+
+    return () => {
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, [isCreateFormOpen]);
 
   useEffect(() => {
     if (!session?.user?.id) {
@@ -262,6 +281,30 @@ function Journal({ onClose }: JournalProps) {
     return entriesByDate.get(selectedDateKey) ?? [];
   }, [entriesByDate, selectedDateKey, sortedEntries]);
 
+  useEffect(() => {
+    const frameId = window.requestAnimationFrame(() => {
+      if (!heatmapScrollContainerRef.current) {
+        return;
+      }
+
+      const { scrollWidth, clientWidth } = heatmapScrollContainerRef.current;
+      heatmapScrollContainerRef.current.scrollLeft = Math.max(scrollWidth - clientWidth, 0);
+    });
+
+    return () => {
+      window.cancelAnimationFrame(frameId);
+    };
+  }, [heatmapData.weeks.length]);
+
+  const handleHeatmapWheel = (event: React.WheelEvent<HTMLDivElement>) => {
+    if (!heatmapScrollContainerRef.current || event.deltaY === 0) {
+      return;
+    }
+
+    event.preventDefault();
+    heatmapScrollContainerRef.current.scrollLeft -= event.deltaY;
+  };
+
   const ghostButtonClass =
     "px-3 py-2 rounded-lg text-sm font-semibold text-primary dark:text-darkLight bg-secondary/10 dark:bg-darkTertiary/20 border border-secondary/25 dark:border-darkTertiary/40 shadow-sm hover:bg-secondary/20 dark:hover:bg-darkTertiary/35 hover:-translate-y-[1px] active:translate-y-0 active:scale-[0.98] transition-all";
   const textActionButtonClass =
@@ -364,8 +407,8 @@ function Journal({ onClose }: JournalProps) {
     }
 
     const trimmedTitle = editTitle.trim();
-    if (trimmedTitle.length < 2) {
-      setEntryError("Title must be at least 2 characters.");
+    if (trimmedTitle.length < 1) {
+      setEntryError("Title must be at least 1 character.");
       return;
     }
 
@@ -476,7 +519,11 @@ function Journal({ onClose }: JournalProps) {
                 </p>
               </div>
 
-              <div className="w-full overflow-x-auto no-scrollbar pb-2">
+              <div
+                ref={heatmapScrollContainerRef}
+                onWheel={handleHeatmapWheel}
+                className="w-full overflow-x-auto no-scrollbar pb-2"
+              >
                 <div className="inline-flex flex-col gap-2 min-w-max">
                   <div
                     className="grid gap-1"
@@ -541,62 +588,79 @@ function Journal({ onClose }: JournalProps) {
             </div>
 
             <div className="mb-8">
-              {!isCreateFormOpen ? (
-                <button
-                  type="button"
-                  onClick={() => setIsCreateFormOpen(true)}
-                  className={primaryButtonClass}
-                >
-                  Write a new entry
-                </button>
-              ) : (
-                <form onSubmit={handleAddEntry} className="space-y-4 card dark:bg-darkSecondary rounded-2xl border border-secondary/20 dark:border-darkTertiary/30">
-                  <label className="block text-sm font-semibold text-primary dark:text-darkLight">
-                    Write a new entry
-                  </label>
-                  <input
-                    type="text"
-                    value={title}
-                    onChange={(event) => setTitle(event.target.value)}
-                    placeholder="Entry title"
-                    className="w-full px-4 py-3 rounded-lg border-2 border-secondary dark:border-darkTertiary bg-light dark:bg-darkSecondary text-primary dark:text-darkLight focus:outline-none focus:border-accent transition-colors"
-                  />
-                  <textarea
-                    value={content}
-                    onChange={(event) => setContent(event.target.value)}
-                    placeholder="Write your thoughts (optional)"
-                    rows={7}
-                    className="w-full px-4 py-3 rounded-lg border-2 border-secondary dark:border-darkTertiary bg-light dark:bg-darkSecondary text-primary dark:text-darkLight focus:outline-none focus:border-accent transition-colors resize-none"
-                  />
-                  <input
-                    type="text"
-                    value={mood}
-                    onChange={(event) => setMood(event.target.value)}
-                    placeholder="Mood (optional, e.g. Reflective)"
-                    className="w-full px-4 py-3 rounded-lg border-2 border-secondary dark:border-darkTertiary bg-light dark:bg-darkSecondary text-primary dark:text-darkLight focus:outline-none focus:border-accent transition-colors"
-                  />
-                  <div className="flex items-center justify-between gap-4">
-                    <p className="text-sm text-secondary dark:text-darkTertiary">{title.trim().length}/2 minimum title characters</p>
-                    <div className="flex items-center gap-2">
-                      <button
-                        type="button"
-                        onClick={() => setIsCreateFormOpen(false)}
-                        className={ghostButtonClass}
-                      >
-                        Cancel
-                      </button>
-                      <button
-                        type="submit"
-                        disabled={isSubmitDisabled || isSavingEntry}
-                        className={`${primaryButtonClass} disabled:opacity-50 disabled:cursor-not-allowed`}
-                      >
-                        {isSavingEntry ? "Saving..." : "Save Entry"}
-                      </button>
-                    </div>
-                  </div>
-                  {entryError && <p className="text-red-500 text-sm">{entryError}</p>}
-                </form>
-              )}
+              <button
+                type="button"
+                onClick={() => setIsCreateFormOpen(true)}
+                className={primaryButtonClass}
+              >
+                Write a new entry
+              </button>
+
+              <AnimatePresence>
+                {isCreateFormOpen && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-darkPrimary/45 px-4"
+                    onClick={() => setIsCreateFormOpen(false)}
+                  >
+                    <motion.form
+                      onSubmit={handleAddEntry}
+                      initial={{ opacity: 0, y: 16, scale: 0.97 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.98 }}
+                      transition={{ duration: 0.2 }}
+                      onClick={(event) => event.stopPropagation()}
+                      className="w-full max-w-2xl space-y-4 card dark:bg-darkSecondary rounded-2xl border border-secondary/20 dark:border-darkTertiary/30"
+                    >
+                      <label className="block text-sm font-semibold text-primary dark:text-darkLight">
+                        Write a new entry
+                      </label>
+                      <input
+                        type="text"
+                        value={title}
+                        onChange={(event) => setTitle(event.target.value)}
+                        placeholder="Entry title"
+                        className="w-full px-4 py-3 rounded-lg border-2 border-secondary dark:border-darkTertiary bg-light dark:bg-darkSecondary text-primary dark:text-darkLight focus:outline-none focus:border-accent transition-colors"
+                      />
+                      <textarea
+                        value={content}
+                        onChange={(event) => setContent(event.target.value)}
+                        placeholder="Write your thoughts (optional)"
+                        rows={7}
+                        className="w-full px-4 py-3 rounded-lg border-2 border-secondary dark:border-darkTertiary bg-light dark:bg-darkSecondary text-primary dark:text-darkLight focus:outline-none focus:border-accent transition-colors resize-none"
+                      />
+                      <input
+                        type="text"
+                        value={mood}
+                        onChange={(event) => setMood(event.target.value)}
+                        placeholder="Mood (optional, e.g. Reflective)"
+                        className="w-full px-4 py-3 rounded-lg border-2 border-secondary dark:border-darkTertiary bg-light dark:bg-darkSecondary text-primary dark:text-darkLight focus:outline-none focus:border-accent transition-colors"
+                      />
+                      <div className="flex items-center justify-end gap-4">
+                        <div className="flex items-center gap-2">
+                          <button
+                            type="button"
+                            onClick={() => setIsCreateFormOpen(false)}
+                            className={ghostButtonClass}
+                          >
+                            Cancel
+                          </button>
+                          <button
+                            type="submit"
+                            disabled={isSubmitDisabled || isSavingEntry}
+                            className={`${primaryButtonClass} disabled:opacity-50 disabled:cursor-not-allowed`}
+                          >
+                            {isSavingEntry ? "Saving..." : "Save Entry"}
+                          </button>
+                        </div>
+                      </div>
+                      {entryError && <p className="text-red-500 text-sm">{entryError}</p>}
+                    </motion.form>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
 
             <div className="space-y-4">

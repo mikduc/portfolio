@@ -58,9 +58,8 @@ function Contact({ onOpenJournal }: ContactProps) {
   };
 
   const socialIconMotion = {
-    whileHover: { scale: 1.12, y: -2 },
-    whileTap: { scale: 0.96 },
-    transition: { duration: 0.2 },
+    whileHover: { scale: 1.06, rotate: 10 },
+    whileTap: { scale: 0.95 },
   };
 
   const socialLinks = [
