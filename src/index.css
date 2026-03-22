@@ -59,3 +59,12 @@
 .dark ::-webkit-scrollbar-thumb:hover {
   background: #EDEDCE;
 }
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

@@ -8,7 +8,11 @@ interface ContactFormData {
   message: string;
 }
 
-function Contact() {
+interface ContactProps {
+  onOpenJournal: () => void;
+}
+
+function Contact({ onOpenJournal }: ContactProps) {
   const {
     register,
     handleSubmit,
@@ -268,11 +272,18 @@ function Contact() {
         {/* Footer */}
         <motion.div
           variants={itemVariants}
-          className="text-center mt-16 pt-8 border-t border-secondary/40 dark:border-darkTertiary/50"
+          className="flex items-center justify-center gap-3 text-center mt-16 pt-8 border-t border-secondary/40 dark:border-darkTertiary/50"
         >
           <p className="text-secondary dark:text-darkTertiary">
             © {new Date().getFullYear()} Ryan Fang.
           </p>
+          <button
+            type="button"
+            onClick={onOpenJournal}
+            title="Private journal"
+            aria-label="Open private journal"
+            className="h-3 w-3 rounded-full bg-secondary/60 dark:bg-darkTertiary/70 hover:bg-accent dark:hover:bg-darkAccent transition-colors"
+          />
         </motion.div>
       </div>
     </motion.section>
