@@ -56,7 +56,7 @@ const Welcome = () => {
               variants={itemVariants}
               className="mt-6 text-lg md:text-2xl text-secondary dark:text-darkTertiary max-w-2xl"
             >
-              Building thoughtful products through clean engineering, creative design, and strong problem solving.
+              I like building useful things that feel good to use: clean code, clear UX, and fewer headaches for everyone involved.
             </motion.p>
 
             <motion.div variants={itemVariants} className="mt-10 flex gap-4 flex-wrap">
@@ -89,7 +89,7 @@ const Welcome = () => {
             <div className="space-y-5">
               <div>
                 <p className="text-sm text-secondary dark:text-darkTertiary">Focus</p>
-                <p className="text-lg font-semibold text-primary dark:text-darkLight">Frontend Engineering & Data-Oriented Development</p>
+                <p className="text-lg font-semibold text-primary dark:text-darkLight">Frontend engineering, data-heavy tools, and making complex stuff feel simple</p>
               </div>
               <div>
                 <p className="text-sm text-secondary dark:text-darkTertiary">Stack</p>
@@ -97,7 +97,7 @@ const Welcome = () => {
               </div>
               <div>
                 <p className="text-sm text-secondary dark:text-darkTertiary">Strength</p>
-                <p className="text-lg font-semibold text-primary dark:text-darkLight">From concept to polished implementation</p>
+                <p className="text-lg font-semibold text-primary dark:text-darkLight">Turning “quick ideas” into polished builds (and yes, the bugs get fixed)</p>
               </div>
             </div>
           </motion.div>

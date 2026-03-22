@@ -213,7 +213,7 @@ function Contact({ onOpenJournal }: ContactProps) {
                 Let's Connect
               </h3>
               <p className="text-secondary dark:text-darkTertiary mb-8 leading-relaxed">
-                Have an interesting project in mind? Want to collaborate or just chat about tech? Drop me a message or find me on social media. I'd love to hear from you.
+                Got an idea, a project, or a weird bug story? Send me a message or ping me on social. I am always happy to chat, collaborate, or trade debugging war stories.
               </p>
             </div>
 

@@ -63,27 +63,27 @@ function About() {
           {/* Text Content */}
           <motion.div variants={itemVariants} className="space-y-6">
             <p className="text-lg text-secondary dark:text-darkLight leading-relaxed">
-              I'm a mathematician and developer passionate about solving complex problems through code. Currently studying Mathematics with a Statistics focus at the University of Waterloo, but my real education comes from building projects and experimenting with new technologies.
+              I’m a math student at Waterloo (Statistics focus) who spends a lot of time building software. Classes help, but most of my learning comes from making things, breaking them, and then figuring out why they broke.
             </p>
             <p className="text-lg text-secondary dark:text-darkLight leading-relaxed">
-              I love the entire creative process—from conceptualizing ideas to shipping polished products. Whether it's building interactive web applications with React, prototyping games in game jams, or analyzing data with Python, I'm drawn to work that's both technically sound and thoughtfully designed.
+              I enjoy the whole process, from rough idea to shipped project. One week it’s a React app, the next it’s a game jam prototype, and sometimes it’s a Python script that saves me from spreadsheet pain.
             </p>
             <p className="text-lg text-secondary dark:text-darkLight leading-relaxed">
-              When I'm not coding, you'll find me exploring new frameworks, participating in game jams, or gaming. I'm always up for collaborating on interesting projects—reach out if you'd like to build something together.
+              When I’m not coding, I’m usually exploring new tools, joining game jams, or pretending one more match counts as “research.” If you’re building something interesting, I’m always up for collaborating.
             </p>
 
             <div className="grid sm:grid-cols-3 gap-4 pt-2">
               <div className="card dark:bg-darkSecondary border border-secondary/15 dark:border-darkTertiary/25 text-center">
-                <p className="text-3xl font-bold text-accent dark:text-darkAccent">4+</p>
-                <p className="text-sm text-secondary dark:text-darkTertiary mt-1">Core Languages</p>
+                <p className="text-3xl font-bold text-accent dark:text-darkAccent">48h</p>
+                <p className="text-sm text-secondary dark:text-darkTertiary mt-1">Fastest project sprint that still worked</p>
               </div>
               <div className="card dark:bg-darkSecondary border border-secondary/15 dark:border-darkTertiary/25 text-center">
-                <p className="text-3xl font-bold text-accent dark:text-darkAccent">3</p>
-                <p className="text-sm text-secondary dark:text-darkTertiary mt-1">Disciplines</p>
+                <p className="text-3xl font-bold text-accent dark:text-darkAccent">3 AM</p>
+                <p className="text-sm text-secondary dark:text-darkTertiary mt-1">Most suspiciously productive hour</p>
               </div>
               <div className="card dark:bg-darkSecondary border border-secondary/15 dark:border-darkTertiary/25 text-center">
                 <p className="text-3xl font-bold text-accent dark:text-darkAccent">∞</p>
-                <p className="text-sm text-secondary dark:text-darkTertiary mt-1">Curiosity</p>
+                <p className="text-sm text-secondary dark:text-darkTertiary mt-1">Tabs open while "doing research"</p>
               </div>
             </div>
           </motion.div>

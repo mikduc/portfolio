@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useThemeStore } from "../store/themeStore";
 import SectionScroller from "./SectionScroller.tsx";
 import Welcome from "./Welcome.tsx";
 import About from "./About.tsx";
@@ -9,16 +8,7 @@ import Journal from "./Journal.tsx";
 import Contact from "./Contact.tsx";
 
 function App() {
-  const isDark = useThemeStore((state) => state.isDark);
   const [isJournalOpen, setIsJournalOpen] = useState(false);
-
-  useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [isDark]);
 
   return (
     <div className="relative min-h-screen bg-light dark:bg-darkPrimary text-primary dark:text-darkLight transition-colors duration-300 overflow-x-hidden">

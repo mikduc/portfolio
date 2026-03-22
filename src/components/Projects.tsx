@@ -26,7 +26,6 @@ function Projects() {
   const projects = [
     {
       url: "https://gitfront.io/r/mikduc/8EqMpXHRpqQk/cpp-chess/",
-      img: "/images/chess.png",
       name: "Chess Engine",
       description:
         "A full-featured chess game in C++ with AI opponent powered by minimax algorithm and real-time graphics using X11.",
@@ -43,14 +42,14 @@ function Projects() {
       url: "https://github.com/mikduc",
       name: "Data Analysis Pipeline",
       description:
-        "A Python-based pipeline for processing large datasets with Pandas and generating insights through Matplotlib visualizations.",
+        "A Python pipeline for cleaning large datasets and turning them into charts that are actually readable (and useful).",
       tags: ["Python", "Pandas", "Data Science"],
     },
     {
       url: "https://github.com/mikduc",
       name: "Portfolio Website",
       description:
-        "This site—built with React, TypeScript, and Tailwind CSS. Features dark mode, smooth animations, and fully responsive design.",
+        "This site. Built with React, TypeScript, and Tailwind, with dark mode, smooth animations, and just enough personality.",
       tags: ["React", "TypeScript", "Tailwind"],
     },
   ];
@@ -82,7 +81,7 @@ function Projects() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          A selection of work across software engineering, game development, and data workflows.
+          A few things I’ve built across software, games, and data. Some serious, some chaotic, all fun to make.
         </motion.p>
 
         <motion.div
