@@ -282,19 +282,23 @@ function Journal({ onClose }: JournalProps) {
   }, [entriesByDate, selectedDateKey, sortedEntries]);
 
   useEffect(() => {
-    const frameId = window.requestAnimationFrame(() => {
-      if (!heatmapScrollContainerRef.current) {
-        return;
-      }
+    const el = heatmapScrollContainerRef.current;
+    if (!el) return;
 
-      const { scrollWidth, clientWidth } = heatmapScrollContainerRef.current;
-      heatmapScrollContainerRef.current.scrollLeft = Math.max(scrollWidth - clientWidth, 0);
-    });
+    const scrollToRight = () => {
+      const { scrollWidth, clientWidth } = el;
+      el.scrollLeft = Math.max(scrollWidth - clientWidth, 0);
+    };
+
+    // Try immediate rAF and a short-delayed rAF to handle late content/layout changes
+    const frameId = window.requestAnimationFrame(scrollToRight);
+    const timeoutId = window.setTimeout(() => window.requestAnimationFrame(scrollToRight), 120);
 
     return () => {
       window.cancelAnimationFrame(frameId);
+      clearTimeout(timeoutId);
     };
-  }, [heatmapData.weeks.length]);
+  }, [heatmapData.weeks.length, entries.length]);
 
   const handleHeatmapWheel = (event: React.WheelEvent<HTMLDivElement>) => {
     if (!heatmapScrollContainerRef.current || event.deltaY === 0) {

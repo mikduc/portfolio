@@ -71,13 +71,13 @@ function Contact({ onOpenJournal }: ContactProps) {
     },
     {
       name: "LinkedIn",
-      url: "https://linkedin.com/in/ryanfang01",
+      url: "https://www.linkedin.com/in/rfang0/",
       icon: "linkedin",
       color: "hover:text-primary dark:hover:text-darkLight",
     },
     {
       name: "Instagram",
-      url: "https://instagram.com/mik.duc",
+      url: "https://instagram.com/r.fang04",
       icon: "instagram",
       color: "hover:text-primary dark:hover:text-darkLight",
     },
