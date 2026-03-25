@@ -80,4 +80,4 @@ const Project: React.FC<ProjectProps> = ({
   );
 };
 
-export default Project;
+export default React.memo(Project);

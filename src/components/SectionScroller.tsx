@@ -164,4 +164,4 @@ function SectionScroller() {
   );
 }
 
-export default SectionScroller;
+export default React.memo(SectionScroller);

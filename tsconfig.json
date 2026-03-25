@@ -12,11 +12,11 @@
     "isolatedModules": true,
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
+    "declaration": false,
+    "sourceMap": false,
     "jsx": "react-jsx",
-    "noEmit": true
+    "noEmit": true,
+    "importsNotUsedAsValues": "remove"
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

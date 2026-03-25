@@ -28,12 +28,11 @@ function Contact({ onOpenJournal }: ContactProps) {
     try {
       // Simulate form submission
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log("Form submitted:", data);
       setSubmitted(true);
       reset();
       setTimeout(() => setSubmitted(false), 3000);
     } catch (error) {
-      console.error("Error submitting form:", error);
+      // Handle error silently in production
     }
   };
 
@@ -89,8 +88,8 @@ function Contact({ onOpenJournal }: ContactProps) {
       className="min-h-screen snap-start flex items-center bg-light dark:bg-darkPrimary py-24"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.55 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.6 }}
     >
       <div className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
         <motion.h2
@@ -98,7 +97,7 @@ function Contact({ onOpenJournal }: ContactProps) {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.4 }}
         >
           Get In Touch
         </motion.h2>
@@ -108,7 +107,7 @@ function Contact({ onOpenJournal }: ContactProps) {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           {/* Contact Form */}
           <motion.div variants={itemVariants} className="card dark:bg-darkSecondary rounded-2xl border border-secondary/20 dark:border-darkTertiary/30">

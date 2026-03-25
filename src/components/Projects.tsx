@@ -60,8 +60,8 @@ function Projects() {
       className="min-h-screen snap-start flex items-center bg-light dark:bg-darkPrimary py-24"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.55 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.6 }}
     >
       <div className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
         <motion.h2
@@ -69,7 +69,7 @@ function Projects() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.4 }}
         >
           Featured Projects
         </motion.h2>
@@ -79,7 +79,7 @@ function Projects() {
           variants={itemVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           A few things I’ve built across software, games, and data. Some serious, some chaotic, all fun to make.
         </motion.p>
@@ -89,7 +89,7 @@ function Projects() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           {projects.map((project, index) => (
             <motion.div key={index} variants={itemVariants}>

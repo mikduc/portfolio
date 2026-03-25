@@ -39,8 +39,8 @@ function About() {
       className="min-h-screen snap-start flex items-center bg-light dark:bg-darkPrimary py-24"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.55 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.6 }}
     >
       <div className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
         <motion.h2
@@ -48,7 +48,7 @@ function About() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.4 }}
         >
           About Me
         </motion.h2>
@@ -58,7 +58,7 @@ function About() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           {/* Text Content */}
           <motion.div variants={itemVariants} className="space-y-6">
@@ -94,7 +94,7 @@ function About() {
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
           >
             <h3 className="text-xl font-bold text-primary dark:text-darkLight mb-5">Skills & Tools</h3>
             <div className="flex flex-wrap gap-3">
