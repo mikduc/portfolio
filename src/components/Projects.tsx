@@ -39,10 +39,10 @@ function Projects() {
       tags: ["Game Dev", "Game Jam", "Web"],
     },
     {
-      url: "https://github.com/mikduc",
+      url: "https://github.com/mikduc/Aseptic",
       name: "Data Analysis Pipeline",
       description:
-        "A Python pipeline for cleaning large datasets and turning them into charts that are actually readable (and useful).",
+        "Modern Streamlit workspace for profiling and cleaning data with Polars + LLM guidance.",
       tags: ["Python", "Pandas", "Data Science"],
     },
     {
