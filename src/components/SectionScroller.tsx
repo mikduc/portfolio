@@ -85,7 +85,7 @@ function SectionScroller() {
                 initial={{ opacity: 0, y: -8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.08 }}
-                className={`px-3 py-2 rounded-md text-xs font-semibold tracking-wide uppercase transition-all ${
+                className={`px-3 py-2 rounded-md text-xs font-semibold tracking-wide uppercase transition-shadow ${
                   isActive
                     ? "bg-primary text-light dark:bg-darkLight dark:text-darkPrimary"
                     : "text-primary dark:text-darkLight border border-transparent hover:border-secondary/35 dark:hover:border-darkTertiary/40 hover:bg-secondary/10 dark:hover:bg-darkTertiary/20"

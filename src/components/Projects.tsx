@@ -46,7 +46,7 @@ function Projects() {
       tags: ["Python", "Pandas", "Data Science"],
     },
     {
-      url: "https://github.com/mikduc",
+      url: "https://github.com/mikduc/portfolio",
       name: "Portfolio Website",
       description:
         "This site. Built with React, TypeScript, and Tailwind, with dark mode, smooth animations, and just enough personality.",
