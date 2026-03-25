@@ -110,11 +110,11 @@ function Contact({ onOpenJournal }: ContactProps) {
           viewport={{ once: true, amount: 0.3 }}
         >
           {/* Contact Form */}
-          <motion.div variants={itemVariants} className="card dark:bg-darkSecondary rounded-2xl border border-secondary/20 dark:border-darkTertiary/30">
+          <motion.div variants={itemVariants} className="card">
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               {/* Name Field */}
               <div>
-                <label className="block text-sm font-semibold text-primary dark:text-darkLight mb-2">
+                <label className="block text-xs font-semibold tracking-wide uppercase text-primary dark:text-darkLight mb-2">
                   Your Name
                 </label>
                 <input
@@ -127,7 +127,7 @@ function Contact({ onOpenJournal }: ContactProps) {
                       message: "Name must be at least 2 characters",
                     },
                   })}
-                  className="w-full px-4 py-3 rounded-lg border-2 border-secondary dark:border-darkTertiary bg-light dark:bg-darkSecondary text-primary dark:text-darkLight focus:outline-none focus:border-accent transition-colors"
+                  className="input-field"
                 />
                 {errors.name && (
                   <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
@@ -136,7 +136,7 @@ function Contact({ onOpenJournal }: ContactProps) {
 
               {/* Email Field */}
               <div>
-                <label className="block text-sm font-semibold text-primary dark:text-darkLight mb-2">
+                <label className="block text-xs font-semibold tracking-wide uppercase text-primary dark:text-darkLight mb-2">
                   Your Email
                 </label>
                 <input
@@ -149,7 +149,7 @@ function Contact({ onOpenJournal }: ContactProps) {
                       message: "Invalid email address",
                     },
                   })}
-                  className="w-full px-4 py-3 rounded-lg border-2 border-secondary dark:border-darkTertiary bg-light dark:bg-darkSecondary text-primary dark:text-darkLight focus:outline-none focus:border-accent transition-colors"
+                  className="input-field"
                 />
                 {errors.email && (
                   <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
@@ -158,7 +158,7 @@ function Contact({ onOpenJournal }: ContactProps) {
 
               {/* Message Field */}
               <div>
-                <label className="block text-sm font-semibold text-primary dark:text-darkLight mb-2">
+                <label className="block text-xs font-semibold tracking-wide uppercase text-primary dark:text-darkLight mb-2">
                   Message
                 </label>
                 <textarea
@@ -171,7 +171,7 @@ function Contact({ onOpenJournal }: ContactProps) {
                       message: "Message must be at least 10 characters",
                     },
                   })}
-                  className="w-full px-4 py-3 rounded-lg border-2 border-secondary dark:border-darkTertiary bg-light dark:bg-darkSecondary text-primary dark:text-darkLight focus:outline-none focus:border-accent transition-colors resize-none"
+                  className="input-field resize-none"
                 />
                 {errors.message && (
                   <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
@@ -194,7 +194,7 @@ function Contact({ onOpenJournal }: ContactProps) {
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="p-4 bg-tertiary dark:bg-darkTertiary/30 text-primary dark:text-darkLight rounded-lg"
+                  className="p-4 bg-tertiary dark:bg-darkTertiary/30 text-primary dark:text-darkLight rounded-md border border-secondary/30 dark:border-darkTertiary/30"
                 >
                   ✓ Message sent successfully!
                 </motion.div>
@@ -208,10 +208,10 @@ function Contact({ onOpenJournal }: ContactProps) {
             className="flex flex-col justify-center space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold text-primary dark:text-darkLight mb-4">
+              <h3 className="text-xl md:text-2xl font-bold text-primary dark:text-darkLight mb-4 tracking-tight">
                 Let's Connect
               </h3>
-              <p className="text-secondary dark:text-darkTertiary mb-8 leading-relaxed">
+              <p className="text-sm md:text-base text-secondary dark:text-darkTertiary mb-8 leading-relaxed">
                 Got an idea, a project, or a weird bug story? Send me a message or ping me on social. I am always happy to chat, collaborate, or trade debugging war stories.
               </p>
             </div>
@@ -230,7 +230,7 @@ function Contact({ onOpenJournal }: ContactProps) {
                   transition={{ delay: index * 0.08, duration: 0.35 }}
                   whileHover={socialIconMotion.whileHover}
                   whileTap={socialIconMotion.whileTap}
-                  className={`p-3 rounded-xl bg-secondary/10 dark:bg-darkTertiary/20 text-darkPrimary dark:text-darkLight text-4xl transition-colors duration-200 ${link.color}`}
+                  className={`p-3 rounded-md border border-secondary/25 dark:border-darkTertiary/30 bg-secondary/10 dark:bg-darkTertiary/20 text-darkPrimary dark:text-darkLight text-4xl transition-colors duration-200 ${link.color}`}
                   title={link.name}
                 >
                   {link.icon === "github" && (
@@ -254,12 +254,12 @@ function Contact({ onOpenJournal }: ContactProps) {
 
             {/* Email */}
             <div>
-              <h4 className="text-sm font-semibold text-secondary dark:text-darkTertiary mb-2">
+              <h4 className="text-xs font-semibold tracking-wide uppercase text-secondary dark:text-darkTertiary mb-2">
                 Or email me directly:
               </h4>
               <a
                 href="mailto:ryanfang01@gmail.com"
-                className="text-lg text-primary dark:text-darkLight font-semibold hover:opacity-80 transition-opacity"
+                className="text-base md:text-lg text-primary dark:text-darkLight font-semibold hover:opacity-80 transition-opacity"
               >
                 ryanfang01@gmail.com
               </a>
@@ -272,7 +272,7 @@ function Contact({ onOpenJournal }: ContactProps) {
           variants={itemVariants}
           className="flex items-center justify-center gap-3 text-center mt-16 pt-8 border-t border-secondary/40 dark:border-darkTertiary/50"
         >
-          <p className="text-secondary dark:text-darkTertiary">
+          <p className="text-xs md:text-sm tracking-wide uppercase text-secondary dark:text-darkTertiary">
             © {new Date().getFullYear()} Ryan Fang.
           </p>
           <button
@@ -280,7 +280,7 @@ function Contact({ onOpenJournal }: ContactProps) {
             onClick={onOpenJournal}
             title="Private journal"
             aria-label="Open private journal"
-            className="h-3 w-3 rounded-full bg-secondary/60 dark:bg-darkTertiary/70 hover:bg-accent dark:hover:bg-darkAccent transition-colors"
+            className="h-2.5 w-2.5 rounded-sm bg-secondary/60 dark:bg-darkTertiary/70 hover:bg-accent dark:hover:bg-darkAccent transition-colors"
           />
         </motion.div>
       </div>

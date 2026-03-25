@@ -66,11 +66,11 @@ function SectionScroller() {
       transition={{ duration: 0.5 }}
       className="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4"
     >
-      <div className="mx-auto max-w-7xl rounded-2xl border border-secondary/20 dark:border-darkTertiary/30 bg-light/80 dark:bg-darkPrimary/80 backdrop-blur-md px-4 md:px-6 py-3">
+      <div className="mx-auto max-w-7xl rounded-md border border-secondary/30 dark:border-darkTertiary/35 bg-light/85 dark:bg-darkPrimary/85 backdrop-blur-lg px-4 md:px-6 py-3 shadow-sm">
         <div className="flex items-center justify-between">
         <button
           onClick={() => scrollToSection("top")}
-          className="text-base md:text-lg font-bold text-primary dark:text-darkLight"
+          className="text-sm md:text-base font-extrabold tracking-[0.08em] uppercase text-primary dark:text-darkLight"
         >
           Ryan Fang
         </button>
@@ -85,10 +85,10 @@ function SectionScroller() {
                 initial={{ opacity: 0, y: -8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.08 }}
-                className={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors ${
+                className={`px-3 py-2 rounded-md text-xs font-semibold tracking-wide uppercase transition-all ${
                   isActive
-                    ? "bg-accent text-light dark:bg-darkAccent dark:text-darkPrimary"
-                    : "text-primary dark:text-darkLight hover:bg-secondary/10 dark:hover:bg-darkTertiary/20"
+                    ? "bg-primary text-light dark:bg-darkLight dark:text-darkPrimary"
+                    : "text-primary dark:text-darkLight border border-transparent hover:border-secondary/35 dark:hover:border-darkTertiary/40 hover:bg-secondary/10 dark:hover:bg-darkTertiary/20"
                 }`}
               >
                 {section.label}
@@ -102,7 +102,7 @@ function SectionScroller() {
               onClick={() => setIsMobileMenuOpen((prev) => !prev)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="md:hidden p-2 rounded-lg bg-secondary/20 dark:bg-darkTertiary/20 hover:bg-secondary/35 dark:hover:bg-darkTertiary/35 transition-colors"
+              className="md:hidden p-2 rounded-md border border-secondary/30 dark:border-darkTertiary/35 bg-secondary/10 dark:bg-darkTertiary/15 hover:bg-secondary/20 dark:hover:bg-darkTertiary/25 transition-colors"
               aria-label="Toggle mobile menu"
             >
               <svg className="w-5 h-5 text-accent dark:text-darkAccent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -118,7 +118,7 @@ function SectionScroller() {
               onClick={toggleTheme}
               whileHover={{ scale: 1.06, rotate: 10 }}
               whileTap={{ scale: 0.95 }}
-              className="p-2 rounded-lg bg-secondary/20 dark:bg-darkTertiary/20 hover:bg-secondary/35 dark:hover:bg-darkTertiary/35 transition-colors"
+              className="p-2 rounded-md border border-secondary/30 dark:border-darkTertiary/35 bg-secondary/10 dark:bg-darkTertiary/15 hover:bg-secondary/20 dark:hover:bg-darkTertiary/25 transition-colors"
               aria-label="Toggle dark mode"
             >
               {isDark ? (
@@ -147,10 +147,10 @@ function SectionScroller() {
                 <button
                   key={section.id}
                   onClick={() => scrollToSection(section.id)}
-                  className={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors ${
+                  className={`px-3 py-2 rounded-md text-xs font-semibold tracking-wide uppercase transition-all ${
                     isActive
-                      ? "bg-accent text-light dark:bg-darkAccent dark:text-darkPrimary"
-                      : "text-primary dark:text-darkLight bg-secondary/10 dark:bg-darkTertiary/15"
+                      ? "bg-primary text-light dark:bg-darkLight dark:text-darkPrimary"
+                      : "text-primary dark:text-darkLight bg-secondary/10 dark:bg-darkTertiary/15 border border-secondary/20 dark:border-darkTertiary/30"
                   }`}
                 >
                   {section.label}

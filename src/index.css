@@ -1,14 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   body {
-    @apply bg-light dark:bg-darkPrimary text-primary dark:text-darkLight transition-colors duration-500;
+    @apply bg-light dark:bg-darkPrimary text-primary dark:text-darkLight transition-colors duration-500 antialiased;
+    font-family: "JetBrains Mono", monospace;
   }
 
   html {
     scroll-behavior: smooth;
+  }
+
+  #root {
+    @apply min-h-screen;
+  }
+
+  ::selection {
+    @apply bg-accent/20 dark:bg-darkAccent/30;
   }
 
   /* Reduce motion for animations */
@@ -24,19 +35,27 @@
 
 @layer components {
   .btn-primary {
-    @apply px-6 py-3 bg-primary text-light dark:bg-darkSecondary dark:text-darkLight rounded-lg font-semibold hover:opacity-90 transition-opacity duration-200;
+    @apply inline-flex items-center justify-center px-5 py-3 rounded-md border border-primary dark:border-darkTertiary bg-primary text-light dark:bg-darkSecondary dark:text-darkLight text-sm font-semibold tracking-wide uppercase hover:-translate-y-0.5 hover:shadow-lg hover:opacity-95 active:translate-y-0 active:scale-[0.98] transition-all duration-200;
   }
 
   .btn-secondary {
-    @apply px-6 py-3 border-2 border-secondary dark:border-darkTertiary text-secondary dark:text-darkTertiary rounded-lg font-semibold hover:bg-secondary hover:text-light dark:hover:bg-darkTertiary dark:hover:text-darkPrimary transition-all duration-200;
+    @apply inline-flex items-center justify-center px-5 py-3 rounded-md border border-secondary dark:border-darkTertiary text-secondary dark:text-darkTertiary text-sm font-semibold tracking-wide uppercase hover:bg-secondary hover:text-light dark:hover:bg-darkTertiary dark:hover:text-darkPrimary hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-200;
   }
 
   .card {
-    @apply bg-light dark:bg-darkSecondary rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-200;
+    @apply bg-light/95 dark:bg-darkSecondary/90 rounded-md p-6 border border-secondary/20 dark:border-darkTertiary/25 shadow-sm hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200;
   }
 
   .section-title {
-    @apply text-4xl md:text-5xl font-bold text-primary dark:text-darkLight mb-12;
+    @apply text-3xl md:text-5xl font-extrabold text-primary dark:text-darkLight mb-10 tracking-tight;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-md border border-secondary/40 dark:border-darkTertiary/40 bg-light dark:bg-darkSecondary text-primary dark:text-darkLight focus:outline-none focus:border-accent dark:focus:border-darkAccent focus:ring-2 focus:ring-accent/15 dark:focus:ring-darkAccent/20 transition-all;
+  }
+
+  .chip {
+    @apply px-3 py-1.5 rounded-md bg-secondary/10 dark:bg-darkTertiary/20 text-primary dark:text-darkLight text-xs md:text-sm font-semibold tracking-wide;
   }
 
   /* Optimize animations and transitions */
@@ -57,7 +76,7 @@
 
 ::-webkit-scrollbar-thumb {
   background: #F5E7C6;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {

@@ -21,12 +21,12 @@ const Project: React.FC<ProjectProps> = ({
       whileHover={{ y: -6 }}
       transition={{ duration: 0.3 }}
       onClick={() => url && window.open(url, "_blank")}
-      className={`card group flex flex-col h-full rounded-2xl border border-secondary/15 dark:border-darkTertiary/25 dark:bg-darkSecondary ${url ? "cursor-pointer" : ""}`}
+      className={`card group flex flex-col h-full ${url ? "cursor-pointer" : ""}`}
     >
       {/* Project Image */}
       {img && (
         <motion.div
-          className="relative w-full h-52 mb-5 rounded-xl overflow-hidden bg-gradient-to-br from-secondary/20 to-accent/30 dark:from-darkSecondary dark:to-darkPrimary"
+          className="relative w-full h-52 mb-5 rounded-md overflow-hidden bg-gradient-to-br from-secondary/20 to-accent/30 dark:from-darkSecondary dark:to-darkPrimary border border-secondary/20 dark:border-darkTertiary/25"
           whileHover={{ scale: 1.02 }}
         >
           <img
@@ -41,12 +41,12 @@ const Project: React.FC<ProjectProps> = ({
       )}
 
       {/* Project Title */}
-      <h3 className="text-2xl font-bold text-primary dark:text-darkLight mb-2">
+      <h3 className="text-xl md:text-2xl font-bold text-primary dark:text-darkLight mb-2 tracking-tight">
         {name}
       </h3>
 
       {/* Project Description */}
-      <p className="text-secondary dark:text-darkLight flex-grow mb-5 leading-relaxed">
+      <p className="text-sm md:text-base text-secondary dark:text-darkLight flex-grow mb-5 leading-relaxed">
         {description}
       </p>
 
@@ -56,7 +56,7 @@ const Project: React.FC<ProjectProps> = ({
           {tags.map((tag) => (
             <span
               key={tag}
-              className="px-3 py-1 text-sm bg-secondary/15 dark:bg-darkTertiary/25 text-primary dark:text-darkLight rounded-full font-medium"
+              className="chip"
             >
               {tag}
             </span>

@@ -62,48 +62,48 @@ function About() {
         >
           {/* Text Content */}
           <motion.div variants={itemVariants} className="space-y-6">
-            <p className="text-lg text-secondary dark:text-darkLight leading-relaxed">
-              I’m a math student at Waterloo (Statistics focus) who spends a lot of time building software. Classes help, but most of my learning comes from making things, breaking them, and then figuring out why they broke.
+            <p className="text-base md:text-lg text-secondary dark:text-darkLight leading-relaxed">
+              I’m a Mathematics student at the University of Waterloo with a focus in Statistics, and I spend most of my time building software. Coursework gives me strong fundamentals, but I learn the most by shipping projects and improving them through iteration.
             </p>
-            <p className="text-lg text-secondary dark:text-darkLight leading-relaxed">
-              I enjoy the whole process, from rough idea to shipped project. One week it’s a React app, the next it’s a game jam prototype, and sometimes it’s a Python script that saves me from spreadsheet pain.
+            <p className="text-base md:text-lg text-secondary dark:text-darkLight leading-relaxed">
+              I enjoy the full process from early idea to production-ready result. My projects range from React applications and game jam prototypes to Python automation and data workflows.
             </p>
-            <p className="text-lg text-secondary dark:text-darkLight leading-relaxed">
-              When I’m not coding, I’m usually exploring new tools, joining game jams, or pretending one more match counts as “research.” If you’re building something interesting, I’m always up for collaborating.
+            <p className="text-base md:text-lg text-secondary dark:text-darkLight leading-relaxed">
+              Outside of school and coding, I spend time exploring new tools and joining game jams. If you’re building something thoughtful and practical, I’m always open to collaborating.
             </p>
 
             <div className="grid sm:grid-cols-3 gap-4 pt-2">
-              <div className="card dark:bg-darkSecondary border border-secondary/15 dark:border-darkTertiary/25 text-center">
+              <div className="card text-center">
                 <p className="text-3xl font-bold text-accent dark:text-darkAccent">48h</p>
-                <p className="text-sm text-secondary dark:text-darkTertiary mt-1">Fastest project sprint that still worked</p>
+                <p className="text-xs tracking-wide uppercase text-secondary dark:text-darkTertiary mt-1">Fastest sprint that still worked</p>
               </div>
-              <div className="card dark:bg-darkSecondary border border-secondary/15 dark:border-darkTertiary/25 text-center">
+              <div className="card text-center">
                 <p className="text-3xl font-bold text-accent dark:text-darkAccent">3 AM</p>
-                <p className="text-sm text-secondary dark:text-darkTertiary mt-1">Most suspiciously productive hour</p>
+                <p className="text-xs tracking-wide uppercase text-secondary dark:text-darkTertiary mt-1">Most productive hour</p>
               </div>
-              <div className="card dark:bg-darkSecondary border border-secondary/15 dark:border-darkTertiary/25 text-center">
+              <div className="card text-center">
                 <p className="text-3xl font-bold text-accent dark:text-darkAccent">∞</p>
-                <p className="text-sm text-secondary dark:text-darkTertiary mt-1">Tabs open while "doing research"</p>
+                <p className="text-xs tracking-wide uppercase text-secondary dark:text-darkTertiary mt-1">Tabs open for research</p>
               </div>
             </div>
           </motion.div>
 
           {/* Skills Grid */}
           <motion.div
-            className="card dark:bg-darkSecondary border border-secondary/20 dark:border-darkTertiary/30 rounded-2xl"
+            className="card"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
           >
-            <h3 className="text-xl font-bold text-primary dark:text-darkLight mb-5">Skills & Tools</h3>
+            <h3 className="text-lg md:text-xl font-bold text-primary dark:text-darkLight mb-5 tracking-wide uppercase">Skills & Tools</h3>
             <div className="flex flex-wrap gap-3">
               {skills.map((skill) => (
                 <motion.span
                   key={skill}
                   variants={itemVariants}
                   whileHover={{ y: -2 }}
-                  className="px-4 py-2 rounded-full bg-secondary/15 dark:bg-darkTertiary/25 text-primary dark:text-darkLight font-semibold"
+                  className="chip"
                 >
                   {skill}
                 </motion.span>

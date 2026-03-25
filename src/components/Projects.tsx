@@ -75,7 +75,7 @@ function Projects() {
         </motion.h2>
 
         <motion.p
-          className="text-lg text-secondary dark:text-darkTertiary max-w-2xl mb-10"
+          className="text-base md:text-lg text-secondary dark:text-darkTertiary max-w-2xl mb-10 leading-relaxed"
           variants={itemVariants}
           initial="hidden"
           whileInView="visible"
@@ -85,7 +85,7 @@ function Projects() {
         </motion.p>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-7"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

@@ -40,21 +40,21 @@ const Welcome = () => {
           <div>
             <motion.p
               variants={itemVariants}
-              className="inline-flex items-center rounded-full bg-secondary/10 dark:bg-darkTertiary/20 px-4 py-2 text-sm md:text-base text-secondary dark:text-darkTertiary font-semibold mb-5"
+              className="inline-flex items-center rounded-md border border-secondary/30 dark:border-darkTertiary/35 bg-secondary/10 dark:bg-darkTertiary/20 px-4 py-2 text-xs md:text-sm tracking-wide uppercase text-secondary dark:text-darkTertiary font-semibold mb-5"
             >
               Mathematics @ University of Waterloo
             </motion.p>
 
             <motion.h1
               variants={itemVariants}
-              className="text-5xl md:text-7xl lg:text-8xl font-bold text-primary dark:text-darkLight leading-[1.05]"
+              className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-primary dark:text-darkLight leading-[1.02] tracking-tight"
             >
               Ryan Fang
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
-              className="mt-6 text-lg md:text-2xl text-secondary dark:text-darkTertiary max-w-2xl"
+              className="mt-6 text-base md:text-xl text-secondary dark:text-darkTertiary max-w-2xl leading-relaxed"
             >
               I like building useful things that feel good to use: clean code, clear UX, and fewer headaches for everyone involved.
             </motion.p>
@@ -81,23 +81,23 @@ const Welcome = () => {
 
           <motion.div
             variants={itemVariants}
-            className="card dark:bg-darkSecondary rounded-2xl p-7 border border-secondary/20 dark:border-darkTertiary/30"
+            className="card p-7"
           >
-            <p className="text-sm font-semibold tracking-wide uppercase text-secondary dark:text-darkTertiary mb-4">
+            <p className="text-xs font-semibold tracking-[0.12em] uppercase text-secondary dark:text-darkTertiary mb-4">
               Quick Snapshot
             </p>
             <div className="space-y-5">
               <div>
-                <p className="text-sm text-secondary dark:text-darkTertiary">Focus</p>
-                <p className="text-lg font-semibold text-primary dark:text-darkLight">Frontend engineering, data-heavy tools, and making complex stuff feel simple</p>
+                <p className="text-xs uppercase tracking-wide text-secondary dark:text-darkTertiary">Focus</p>
+                <p className="text-base md:text-lg font-semibold text-primary dark:text-darkLight">Frontend engineering, data-heavy tools, and making complex stuff feel simple</p>
               </div>
               <div>
-                <p className="text-sm text-secondary dark:text-darkTertiary">Stack</p>
-                <p className="text-lg font-semibold text-primary dark:text-darkLight">React, TypeScript, Python, C++</p>
+                <p className="text-xs uppercase tracking-wide text-secondary dark:text-darkTertiary">Stack</p>
+                <p className="text-base md:text-lg font-semibold text-primary dark:text-darkLight">React, TypeScript, Python, C++</p>
               </div>
               <div>
-                <p className="text-sm text-secondary dark:text-darkTertiary">Strength</p>
-                <p className="text-lg font-semibold text-primary dark:text-darkLight">Turning “quick ideas” into polished builds (and yes, the bugs get fixed)</p>
+                <p className="text-xs uppercase tracking-wide text-secondary dark:text-darkTertiary">Strength</p>
+                <p className="text-base md:text-lg font-semibold text-primary dark:text-darkLight">Turning “quick ideas” into polished builds (and yes, the bugs get fixed)</p>
               </div>
             </div>
           </motion.div>
