@@ -22,14 +22,17 @@
     "postcss": "^8.4.31",
     "source-map-explorer": "^2.5.3",
     "tailwindcss": "^3.3.0",
-    "typescript": "4.4.4"
+    "typescript": "4.4.4",
+    "wrangler": "^4.77.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "build:analyze": "react-scripts build && source-map-explorer 'build/static/js/*.js'",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && wrangler deploy",
+    "preview": "npm run build && wrangler dev"
   },
   "browserslist": [
     ">0.2%",
